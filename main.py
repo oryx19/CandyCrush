@@ -252,7 +252,7 @@ class UserInterface():
         self.window = pygame.display.set_mode((Config.window_width, Config.window_height))
         pygame.display.set_caption("Candy Crush")
 
-        self.background = pygame.image.load('./assets/Boardgame.png')
+        self.background = pygame.image.load(BackEnd.resource_path('./assets/Boardgame.png'))
         self.background = pygame.transform.scale(self.background,(Config.window_width,Config.window_height))
 
         self.clock   = pygame.time.Clock()
@@ -262,7 +262,7 @@ class UserInterface():
         center = (Config.bonbon_size // 2, Config.bonbon_size // 2)
         radius = Config.bonbon_size // 2 - 2
         for i in range(1,Config.nb_type_bonbons+1):
-            bonbon_image = pygame.image.load('./assets/bonbon%s.png' % i).convert_alpha()
+            bonbon_image = pygame.image.load(BackEnd.resource_path('./assets/bonbon%s.png' % i)).convert_alpha()
             if bonbon_image.get_size() != (Config.bonbon_size, Config.bonbon_size):
                 bonbon_image = pygame.transform.smoothscale(bonbon_image, (Config.bonbon_size, Config.bonbon_size)).convert_alpha()
             self.bonbons_liste.append(bonbon_image)
